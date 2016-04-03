@@ -1,0 +1,65 @@
+---
+layout: default
+title: Blog
+---
+
+
+<div class="card-wrapper">
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+
+  <paper-card class="custom"
+          {% if post.image %}
+              image="{{ site.baseurl }}/images/posts/{{ post.image }}"
+          {% endif %}>
+    <div class="card-content">
+      <div class="title">{{ post.title }}</div>
+      <!-- Translate and format date -->
+      {% assign months = "Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre" | split: "|" %}
+      {% assign m = post.date | date: "%-m" | minus: 1 %}
+      {% assign day = post.date | date: "%-d" %}
+      {% assign month = months[m] %}
+      {% assign year = post.date | date: "%Y" %}
+      <div class="subtitle">{{ day }} de {{ month }} de {{ year }}</div>
+      {{ post.excerpt }}
+    </div>
+    <div class="card-actions">
+      <a href="{{ site.baseurl }}{{ post.url }}"><paper-button>Leer más</paper-button></a>
+    </div>
+  </paper-card>
+
+{% endfor %}
+</div>
+
+<!-- Page navigation links -->
+{% if paginator.total_pages > 1 %}
+<my-pagination>
+  <!-- Left Arrow -->
+  {% if paginator.previous_page %}
+  <my-page-link href="{{ paginator.previous_page_path | replace: 'index.html', '/' | prepend: site.baseurl | replace: '//', '/' }}">
+    <iron-icon icon="chevron-left"></iron-icon>
+  </my-page-link>
+  {% else %}
+  <my-page-link disabled><iron-icon icon="chevron-left"></iron-icon></my-page-link>
+  {% endif %}
+
+  <!-- Page Numbers -->
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+    <my-page-link active>{{ page }}</my-page-link>
+    {% elsif page == 1 %}
+    <my-page-link href="{{site.paginate_path | prepend: '/' | prepend: site.baseurl | replace: 'page:num', '' | replace: '//', '/'}}">{{ page }}</my-page-link>
+    {% else %}
+    <my-page-link href="{{ site.paginate_path | prepend: '/' | prepend: site.baseurl | replace: ':num', page | replace: '//', '/' }}">{{ page }}</my-page-link>
+    {% endif %}
+  {% endfor %}
+
+  <!-- Right Arrow -->
+  {% if paginator.next_page %}
+  <my-page-link href="{{ paginator.next_page_path | prepend: site.baseurl }}"><iron-icon icon="chevron-right"></iron-icon></my-page-link>
+  {% else %}
+  <my-page-link disabled><iron-icon icon="chevron-right"></iron-icon></my-page-link>
+  {% endif %}
+</my-pagination>
+
+{% endif %}

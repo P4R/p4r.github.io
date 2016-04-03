@@ -2,26 +2,25 @@ source: app
 destination: app/_site
 
 # Site settings
-title: Jekyll Polymer Theme
-subtitle: Google material design for static sites
+title: Pere Albujer
+subtitle: El éxito depende del esfuerzo
 description: > # this means to ignore newlines until "baseurl:"
-  This is a material design theme for Polymer using Google's Polymer library. It's still an early draft, so be nice.
 
-author: Julia Ebert
-author_website: http://juliaebert.com
-email: julia@juliaebert.com
+author: Pere Albujer
+email: pere@albujer.com
 
-baseurl: "/jekyll-polymer" # the subpath of your site, e.g. /blog. For deploying to github pages, this should match your repo name
-url: "http://juliaebert.com" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog. For deploying to github pages, this should match your repo name
+url: "http://albujer.com" # the base hostname & protocol for your site
 
-twitter_username: ''
-github_username:  jtebert
-disqus_shortname: juliaebert
-google_analytics: UA-54476418-1
+twitter_username: 'P4R93'
+github_username:  P4R
+paypal_donations: http://paypal.me/PAlbujer
+disqus_shortname: 
+google_analytics: ''
 
 # Pagination
 paginate: 5
-paginate_path: "page:num"
+paginate_path: "blog/page:num"
 excerpt_separator: <!--more-->
 
 # Gems
@@ -31,7 +30,12 @@ gems:
 
 # Build settings
 markdown: kramdown
-permalink: /:categories/:year/:month/:day/:title/
+permalink: /blog/:year/:month/:day/:title/
+
+collections:
+  projects:
+    permalink: /projects/:year/:month/:day/:title/
+    output: true
 
 # Archive settings
 jekyll-archives:

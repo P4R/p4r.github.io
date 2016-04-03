@@ -312,11 +312,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin-left: 48px;
   }
 
-  /* Height of the scroll area */
-  .content {
-    height: 900px;
-  }
-
   /* Breakpoints */
 
   /* Small */
@@ -428,7 +423,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     width: 100%;
     background: #ffffff;
     margin-bottom: 16px;
-    /* Make all images in header 16:9 */
+     Make all images in header 16:9 
     --paper-card-header-image: {
        height: 0;
        padding-bottom: 56.25%;
@@ -448,6 +443,78 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin-bottom: 8px;
   }
 
+/*Custom cards project*/
+.card-wrapper.projects{
+    width: 100%;
+    max-width: calc(100% - 32px);
+    padding: 0;
+    position: relative;
+    margin: 16px auto;
+}
+
+paper-card.custom.projects{
+    width: 30%;
+    max-height: 160px;
+    min-height: 160px;
+    background: #ffffff;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 971px) and (max-width: 1280px) {
+    paper-card.custom.projects{
+      width: 46%;
+      margin-left: 1.5%;
+      margin-right: 1.5%;
+      background: #ffffff;
+      margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 970px) {
+    paper-card.custom.projects{
+      width: 100%;
+      background: #ffffff;
+      margin-bottom: 16px;
+    }
+}
+
+/*Custom cards home*/
+.card-wrapper.home{
+    width: 100%;
+    max-width: calc(100% - 32px);
+    padding: 0;
+    position: relative;
+    margin: 16px auto;
+}
+
+paper-card.custom.home{
+    width: 30%;
+    background: #ffffff;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 971px) and (max-width: 1280px) {
+    paper-card.custom.home{
+      width: 46%;
+      margin-left: 1.5%;
+      margin-right: 1.5%;
+      background: #ffffff;
+      margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 970px) {
+    paper-card.custom.home{
+      width: 100%;
+      background: #ffffff;
+      margin-bottom: 16px;
+    }
+}
+
   /** Archive page **/
   #archive h2 {
     color: var(--primary-text-color);
@@ -460,14 +527,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   paper-scroll-header-panel {
     height: 100%;
-  }
-
-  #mainToolbar.tall .app-name {
-    font-size: 40px;
-    font-weight: 300;
-    /* Required for main area's paper-scroll-header-panel custom condensing transformation */
-    -webkit-transform-origin: left center;
-    transform-origin: left center;
   }
 
   #mainToolbar .middle-container,
@@ -489,26 +548,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   #mainToolbar .bottom-container {
   @apply(--paper-font-subhead);
 
-    margin-left: 48px;
+    margin-left: 58px !important;
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
     -webkit-transform-origin: left center;
     transform-origin: left center;
   }
 
+@media (min-width: 601px) {
+    #mainToolbar .bottom-container {
+    @apply(--paper-font-subhead);
+
+      margin-left: 18px !important;
+      /* Required for main area's paper-scroll-header-panel custom condensing transformation */
+      -webkit-transform-origin: left center;
+      transform-origin: left center;
+  }
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* Profile image*/
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  background: url(../images/profile.jpg) center center/100px 100px no-repeat !important;;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  position: absolute;
+  z-index:1;
+  margin: 14px;
+  }
 
   /* General styles */
 
@@ -599,10 +671,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     transform-origin: left center;
   }
 
-  /* Height of the scroll area */
-  .content {
-    height: 900px;
-  }
 
   section[data-route="home"] paper-material {
   @apply(--paper-font-body2);

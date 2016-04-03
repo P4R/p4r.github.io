@@ -11,8 +11,8 @@ layout: default
 <div id="post">
 
   {% if page.image %}
-  <a href="{{ site.baseurl }}/images/posts/{{ page.image }}" data-lightbox="image-1" data-title="{{ page.image-caption }}">
-    <img class="materialboxed" src="{{ site.baseurl }}/images/posts/{{ page.image }}">
+  <a href="{{ site.baseurl }}/images/projects/{{ page.image }}" data-lightbox="image-1" data-title="{{ page.image-caption }}">
+    <img class="materialboxed" src="{{ site.baseurl }}/images/projects/{{ page.image }}">
   </a>
   {% if page.image-source %}
   <a href="{{ page.image-source }}">Source</a>
@@ -32,11 +32,6 @@ layout: default
     {{ content }}
   </div>
 
-  {% for tag in page.tags %}
-    {% assign t = tag | slugify %}
-    <x-chip href="{{ site.jekyll-archives.permalinks.tag | prepend: site.baseurl | replace: ':name', t | replace: '//', '/' }}">{{ tag | capitalize }}</x-chip>
-  {% endfor %}
-
   <hr/>
 
   {% include social.html %}
@@ -54,7 +49,7 @@ layout: default
 
     {% if page.next %}
       <a href="{{ site.baseurl }}{{ page.next.url }}"><paper-button raised class="accent">
-        Siguiente<iron-icon icon="arrow-forward"></iron-icon>
+        Siguiente <iron-icon icon="arrow-forward"></iron-icon>
       </paper-button></a>
     {% else %}
       <paper-button raised disabled>

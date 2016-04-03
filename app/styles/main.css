@@ -32,8 +32,42 @@ paper-menu {
     padding: 0;
 }
 
+.nav-image{
+    max-height: 128px;
+}
+
+.paper-toolbar-0 .toolbar-tools.paper-toolbar .title {
+    font-size: x-large;
+    padding-left: 48px;
+    overflow: inherit;
+}
+
+@media (min-width: 601px) {
+    .paper-toolbar-0 .toolbar-tools.paper-toolbar .title {
+    font-size: x-large;
+    padding-left: 16px;
+    overflow: inherit;
+    }
+}
+
+@media (max-width: 600px) {
+    .paper-toolbar-0 .toolbar-tools.paper-toolbar .title {
+    font-size: x-large;
+    padding-left: 8px;
+    overflow: inherit;
+    }
+}
+
+.paper-toolbar-0 .toolbar-tools.paper-toolbar paper-icon-button[icon=menu]{
+    margin-right: 8px;
+}
+
 #mainToolbar.paper-toolbar-0 {
     z-index:0 !important;
+}
+
+#topBar.paper-toolbar {
+    height: 56px;
 }
 
 #middleBar.paper-toolbar {

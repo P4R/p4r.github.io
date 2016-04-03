@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "Typography"
+date:   2015-06-08 14:00:00
+published: false
 tags:
     - markdown
     - design

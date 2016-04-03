@@ -12,26 +12,29 @@
     <paper-scroll-header-panel drawer fixed>
       <div class="wrapper"> <!-- necessary to push copyright to bottom -->
         <!-- Drawer Toolbar -->
-        <nav-image src="{{ site.baseurl }}/images/material-bg-10.png" id="menu-img"></nav-image>
+        <div class="profile-image"></div>
+        <nav-image src="{{ site.baseurl }}/images/material-bg.png" id="menu-img"></nav-image>
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-          <a href="{{ site.baseurl }}/"><iron-icon icon="home"></iron-icon><span>Home</span></a>
-          <a href="{{ site.baseurl }}/about"><iron-icon icon="social:person"></iron-icon><span>About</span></a>
-          <a href="{{ site.baseurl }}/archive"><iron-icon icon="history"></iron-icon><span>Archive</span></a>
-          <a data-route="contact" href="{{ site.baseurl }}/feed.xml"><iron-icon icon="fa:rss"></iron-icon><span>RSS Feed</span></a>
+          <a href="{{ site.baseurl }}/"><iron-icon icon="home"></iron-icon><span>Inicio</span></a>
+          <a href="{{ site.baseurl }}/blog"><iron-icon icon="icons:chrome-reader-mode"></iron-icon><span>Blog</span></a>
+          <a href="{{ site.baseurl }}/projects"><iron-icon icon="icons:polymer"></iron-icon><span>Proyectos</span></a>
+          <a href="{{ site.baseurl }}/about"><iron-icon icon="social:person"></iron-icon><span>Acerca de mí</span></a>
+          <a href="{{ site.baseurl }}/archive"><iron-icon icon="history"></iron-icon><span>Archivo</span></a>
+          <a data-route="contact" href="{{ site.baseurl }}/feed.xml"><iron-icon icon="fa:rss"></iron-icon><span>RSS</span></a>
         </paper-menu>
 
-        <my-nav-subheader>Elsewhere</my-nav-subheader>
+        <my-nav-subheader></my-nav-subheader>
         <paper-menu class="list" on-iron-select="onMenuSelect">
-          {% if site.author_website %}
-          <a href="{{ site.author_website }}"><iron-icon icon="av:web"></iron-icon><span>My Website</span></a>
-          {% endif %}
           {% if site.github_username %}
-          <a href="https://github.com/{{ site.github_username }}"><iron-icon icon="fa:github"></iron-icon><span>My Github</span></a>
+          <a href="https://github.com/{{ site.github_username }}" target="_blank"><iron-icon icon="fa:github"></iron-icon><span>Mi Github</span></a>
+          {% endif %}
+          {% if site.paypal_donations %}
+          <a href="{{ site.paypal_donations }}" target="_blank"><iron-icon icon="fa:paypal"></iron-icon><span>Donaciones</span></a>
           {% endif %}
           {% if site.email %}
-          <a data-route="contact" href="mailto:{{ site.email }}"><iron-icon icon="mail"></iron-icon><span>Contact</span></a>
+          <a data-route="contact" href="mailto:{{ site.email }}"><iron-icon icon="mail"></iron-icon><span>Contacto</span></a>
           {% endif %}
         </paper-menu>
         <div class="push"></div>
@@ -40,11 +43,13 @@
     </paper-scroll-header-panel>
 
     <!-- Main Area -->
-    <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
+    <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header condensed-header-height="56">
       <!-- Main Toolbar -->
-      <paper-toolbar id="mainToolbar" class="tall">
+      <paper-toolbar id="mainToolbar" class="medium-tall">
         <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
 
+        <!-- Application name -->
+        <div class="top top-container title">{{ site.title }}</div>
         <span class="space"></span>
 
         <!-- Toolbar icons -->\
@@ -52,9 +57,7 @@
           <my-search-bar class="top" id="search-input" searchjson="{{ site.baseurl }}/search.json"></my-search-bar>
         </div>
 
-        <!-- Application name -->
         <div class="middle middle-container">
-          <div class="app-name">{{ site.title }}</div>
         </div>
 
         <!-- Application sub title -->

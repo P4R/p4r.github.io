@@ -1,0 +1,41 @@
+---
+layout: default
+title: Proyectos
+---
+
+
+<div class="card-wrapper projects">
+<!-- This loops through the paginated projects -->
+{% assign projects = site.projects | sort: 'date' | reverse %}
+{% for project in projects %}
+
+  <paper-card class="custom projects"
+          {% if project.image %}
+              image="{{ site.baseurl }}/images/projects/{{ project.image }}"
+          {% endif %}>
+    <div class="card-content">
+      <div class="title">{{ project.title }}</div>
+      <!-- Translate and format date -->
+      {% assign months = "Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre" | split: "|" %}
+      {% assign m = project.date | date: "%-m" | minus: 1 %}
+      {% assign day = project.date | date: "%-d" %}
+      {% assign month = months[m] %}
+      {% assign year = project.date | date: "%Y" %}
+      <div class="subtitle">{{ day }} de {{ month }} de {{ year }}</div>
+    </div>
+    <div class="card-actions">
+      <a href="{{ site.baseurl }}{{ project.url }}"><paper-button>Ver</paper-button></a>
+      <div style="float:right;">
+        {% if project.github_url %}
+          <a href="{{ project.github_url }}"><paper-icon-button icon="fa:github"></paper-icon-button></a>
+        {% endif %}
+
+        {% if project.play_store_url %}
+          <a href="{{ project.play_store_url }}"><paper-icon-button icon="shop"></paper-icon-button></a>
+        {% endif %}
+      </div>
+    </div>
+  </paper-card>
+
+{% endfor %}
+</div>
