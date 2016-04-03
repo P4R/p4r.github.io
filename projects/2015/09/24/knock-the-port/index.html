@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Pere Albujer" />
+
+    <title>Pere Albujer | Knock the Port</title>
+    <meta name="description" content="Cliente de Port Knocking para Android.">
+
+    <link rel="canonical" href="http://albujer.com/projects/2015/09/24/knock-the-port/">
+    <link rel="alternate" type="application/rss+xml" title="Pere Albujer" href='http://albujer.com/feed.xml' />
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- Chrome for Android theme color -->
+    <!-- TODO: Change to match final color scheme -->
+    <meta name="theme-color" content="#607D8B">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Tile color for Win8 -->
+    <!-- TODO: Change to match final color scheme -->
+    <meta name="msapplication-TileColor" content="#FF5722">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Pere Albujer">
+    <link rel="icon" sizes="192x192" href="/images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pere Albujer">
+    <link rel="apple-touch-icon" href="/images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144) -->
+    <meta name="msapplication-TileImage" content="/images/touch/ms-touch-icon-144x144-precomposed.png">
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- endbuild-->
+
+    <!-- build:css styles/code-highlight.css -->
+    <link rel="stylesheet" href="/styles/code-highlight.css">
+    <!-- endbuild-->
+
+    <link rel="stylesheet" href="/scripts/lightbox/css/lightbox.css">
+
+    <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <!-- endbuild -->
+
+    <!-- will be replaced with elements/elements.vulcanized.html -->
+    <link rel="import" href="/elements/elements.html">
+    <!-- endreplace-->
+
+    <!-- For shared styles, shared-styles.html import in elements.html -->
+    <style is="custom-style" include="shared-styles"></style>
+</head>
+
+<body unresolved class="fullbleed layout vertical">
+<span id="browser-sync-binding"></span>
+<template is="dom-bind" id="app">
+
+  <paper-drawer-panel id="paperDrawerPanel">
+    <!-- Drawer Scroll Header Panel -->
+    <paper-scroll-header-panel drawer fixed>
+      <div class="wrapper"> <!-- necessary to push copyright to bottom -->
+        <!-- Drawer Toolbar -->
+        <div class="profile-image"></div>
+        <nav-image src="/images/material-bg.png" id="menu-img"></nav-image>
+
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="" on-iron-select="onMenuSelect">
+          <a href="/"><iron-icon icon="home"></iron-icon><span>Inicio</span></a>
+          <a href="/blog"><iron-icon icon="icons:chrome-reader-mode"></iron-icon><span>Blog</span></a>
+          <a href="/projects"><iron-icon icon="icons:polymer"></iron-icon><span>Proyectos</span></a>
+          <a href="/about"><iron-icon icon="social:person"></iron-icon><span>Acerca de mí</span></a>
+          <a href="/archive"><iron-icon icon="history"></iron-icon><span>Archivo</span></a>
+          <a data-route="contact" href="/feed.xml"><iron-icon icon="fa:rss"></iron-icon><span>RSS</span></a>
+        </paper-menu>
+
+        <my-nav-subheader></my-nav-subheader>
+        <paper-menu class="list" on-iron-select="onMenuSelect">
+          
+          <a href="https://github.com/P4R" target="_blank"><iron-icon icon="fa:github"></iron-icon><span>Mi Github</span></a>
+          
+          
+          <a href="http://paypal.me/PAlbujer" target="_blank"><iron-icon icon="fa:paypal"></iron-icon><span>Donaciones</span></a>
+          
+          
+          <a data-route="contact" href="mailto:pere@albujer.com"><iron-icon icon="mail"></iron-icon><span>Contacto</span></a>
+          
+        </paper-menu>
+        <div class="push"></div>
+      </div>
+      <div id="copyright-info">&copy; 2016, Pere Albujer</div>
+    </paper-scroll-header-panel>
+
+    <!-- Main Area -->
+    <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header condensed-header-height="56">
+      <!-- Main Toolbar -->
+      <paper-toolbar id="mainToolbar" class="medium-tall">
+        <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+
+        <!-- Application name -->
+        <div class="top top-container title">Pere Albujer</div>
+        <span class="space"></span>
+
+        <!-- Toolbar icons -->\
+        <div class="top top-container">
+          <my-search-bar class="top" id="search-input" searchjson="/search.json"></my-search-bar>
+        </div>
+
+        <div class="middle middle-container">
+        </div>
+
+        <!-- Application sub title -->
+        <div class="bottom bottom-container">
+          <!--<div class="bottom-title">El éxito depende del esfuerzo</div>-->
+          <div class="bottom-title">El éxito depende del esfuerzo</div>
+        </div>
+      </paper-toolbar>
+
+      <!-- Main Content -->
+      <div class="content"><style>
+  body {
+    background-color: #f9f9f9 !important;
+  }
+</style>
+
+<div id="post">
+
+  
+
+  <!-- Translate and format date -->
+  
+  
+  
+  
+  
+  <h1 class="paper-font-display1">Knock the Port</h1>
+  <h4 class="paper-font-subhead" id="date">24 de Septiembre de 2015</h4>
+
+  <div id="post-content">
+    <h3 id="cliente-de-port-knocking-para-android">Cliente de Port Knocking para Android.</h3>
+
+<!--more-->
+
+<h4 id="que-es-el-port-knocking">Que es el Port Knocking?</h4>
+
+<p>El Port Knocking  es un mecanismo para abrir puertos externamente en un firewall mediante una secuencia
+preestablecida de intentos de conexión a puertos que se encuentran cerrados. Una vez que el firewall recibe
+una secuencia de conexión correcta, sus reglas son modificadas para permitir al host que realizó los intentos
+conectarse a un puerto específico.</p>
+
+<p>El propósito principal del golpeo de puertos es prevenir un escaneo de puertos por parte de un atacante que busca
+posibles servicios vulnerables. Como los mismos solo se abren ante un golpeo de puertos correcto. Normalmente los
+puertos donde se brindan los servicios se muestran aparentemente cerrados.</p>
+
+<p>Por lo general este mecanismo se implementa configurando un servicio para que revise el log del firewall para
+detectar esta secuencia de intentos de conexión.</p>
+
+<h4 id="la-aplicacin">La aplicación</h4>
+
+<p>La aplicación Knock the Port esta realizada en Android utilizando Java y el IDE Android Studio.
+Esta aplicación se ha desarrollado para permitir enviar secuencias de port knocking a un servidor
+de forma rápida y sencilla ya que en la actualidad es bastante frecuente utilizar los dispositivos móviles
+para todo.</p>
+
+<p>Como características de la aplicación cabe destacar que se han seguido las guías de diseño de Material Design,
+se ha traducido a varios idiomas para facilitar el uso al usuario y se ha utilizado un nivel de API bastante
+pequeño para permitir la compatibilidad con la mayoría de dispositivos Android ya que solo se requiere la versión
+4.0 o superior para poder instalar la aplicación.</p>
+
+<p>La aplicación se puede descargar en el <a href="https://play.google.com/store/apps/details?id=com.albujer.pere.knocktheport" target="_blank">Play Store</a> y el código fuente del proyecto
+se encuentra en <a href="https://github.com/P4R/knocktheport" target="_blank">Github</a></p>
+
+
+  </div>
+
+  <hr/>
+
+    <div class="share section">
+    <a href="https://facebook.com/sharer.php?u=http://albujer.com/projects/2015/09/24/knock-the-port/" rel="nofollow" target="_blank" title="Share on Facebook">
+      <paper-icon-button icon="fa:facebook"></paper-icon-button></a>
+    <a href="https://twitter.com/intent/tweet?text=Knock the Port&url=http://albujer.com/projects/2015/09/24/knock-the-port/&via=P4R93&related=P4R93" rel="nofollow" target="_blank" title="Share on Twitter">
+      <paper-icon-button icon="fa:twitter"></paper-icon-button></a>
+    <a href="https://plus.google.com/share?url=http://albujer.com/projects/2015/09/24/knock-the-port/" rel="nofollow" target="_blank" title="Share on Google+">
+      <paper-icon-button icon="fa:google-plus"></paper-icon-button></a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://albujer.com/projects/2015/09/24/knock-the-port/&title=Knock the Port&summary=&source=http://albujer.com" rel="nofollow" target="_blank" title="Share on LinkedIn">
+      <paper-icon-button icon="fa:linkedin"></paper-icon-button></a>
+    <a href="http://www.reddit.com/submit?url=http://albujer.com/projects/2015/09/24/knock-the-port/&title=Knock the Port" rel="nofollow" target="_blank" title="Share on Reddit">
+      <paper-icon-button icon="fa:reddit"></paper-icon-button></a>
+    <a href="http://www.tumblr.com/share/link?url=http://albujer.com/projects/2015/09/24/knock-the-port/&name={[ page.title }}&description=" rel="nofollow" target="_blank" title="Share on Tumblr">
+      <paper-icon-button icon="fa:tumblr"></paper-icon-button></a>
+  </div>
+
+  <div class="section">
+    
+    <paper-button raised disabled>
+      <iron-icon icon="arrow-back"></iron-icon> Anterior
+    </paper-button>
+    
+
+    
+      <paper-button raised disabled>
+        Siguiente <iron-icon icon="arrow-forward"></iron-icon>
+      </paper-button>
+    
+  </div>
+
+  
+
+</div>
+</div>
+
+    </paper-scroll-header-panel>
+  </paper-drawer-panel>
+
+  <paper-toast id="toast">
+    <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
+  </paper-toast>
+
+</template>
+
+<!-- MathJax -->
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<!-- build:js scripts/app.js -->
+<script src="/scripts/app.js"></script>
+<!-- endbuild-->
+
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','/scripts/g-analyt.js','ga');
+		
+		ga('create', '', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<!-- End Google Analytics -->
+
+
+
+<script type="text/javascript" src="/scripts/lightbox/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/scripts/lightbox/js/lightbox.js"></script>
+
+</body>
+
+</html>

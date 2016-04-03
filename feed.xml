@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pere Albujer</title>
+    <description></description>
+    <link>http://albujer.com/</link>
+    <atom:link href="http://albujer.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 03 Apr 2016 23:53:52 +0200</pubDate>
+    <lastBuildDate>Sun, 03 Apr 2016 23:53:52 +0200</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Hola Mundo</title>
+        <description>&lt;p&gt;Después de mucho tiempo con la intención de crear mi propia web personal al fin ha llegado el día.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;En esta web me gustaría mostrar algunos de mis proyectos, compartir mis conocimientos relacionados con
+las nuevas tecnologías y la programación.&lt;/p&gt;
+
+&lt;p&gt;Aun no estoy seguro del cual va a ser el contenido exacto del blog, pero me gustaría hablaros de cosas
+relacionadas con Android (programación, noticias, novedades …). También me gustaría hablaros sobre
+Raspberry ya que actualmente tengo un Raspberry Pi 2 Model B, en este caso seguramente sea todo a nivel
+de sistemas operativos, aplicaciones y servicios que podemos ejecutar en este mini PC. Por ultimo también
+creo que puede ser interesante hablar sobre Linux y OSX.&lt;/p&gt;
+
+&lt;p&gt;Además si el tiempo me lo permite me gustaría aprovechar para aprender &lt;a href=&quot;https://angular.io/&quot; target=&quot;_blank&quot;&gt;Angular&lt;/a&gt;,
+&lt;a href=&quot;https://www.polymer-project.org/&quot; target=&quot;_blank&quot;&gt;Polymer&lt;/a&gt;, &lt;a href=&quot;https://nodejs.org/&quot; target=&quot;_blank&quot;&gt;Node.js&lt;/a&gt; … y de paso contarlo en el blog.&lt;/p&gt;
+
+&lt;p&gt;En esta primera publicación tampoco quiero entrar en mucho detalle así que simplemente compartiré en en
+varios lenguajes el típico código que se suele usar cuando se aprende a programar,el famoso Hola Mundo.&lt;/p&gt;
+
+&lt;h4 id=&quot;python&quot;&gt;Python:&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hola Mundo!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;java&quot;&gt;Java:&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HolaMundo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hola Mundo!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;javascript&quot;&gt;Javascript:&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hola Mundo!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+</description>
+        <pubDate>Sun, 03 Apr 2016 16:00:00 +0200</pubDate>
+        <link>http://albujer.com/blog/2016/04/03/hola-mundo/</link>
+        <guid isPermaLink="true">http://albujer.com/blog/2016/04/03/hola-mundo/</guid>
+        
+        <category>Hola Mundo</category>
+        
+        <category>Python</category>
+        
+        <category>Java</category>
+        
+        <category>Javascript</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
