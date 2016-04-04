@@ -2,13 +2,33 @@
 ---
 [
 {% for post in site.posts %}
+{% assign months = "Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre" | split: "|" %}
+{% assign m = post.date | date: "%-m" | minus: 1 %}
+{% assign day = post.date | date: "%-d" %}
+{% assign month = months[m] %}
+{% assign year = post.date | date: "%Y" %}
 {
 "title"    : "{{ post.title | escape }}",
 "category" : "{{ post.category }}",
 "tags"     : "{{ post.tags | join: ', ' }}",
 "url"      : "{{ site.baseurl }}{{ post.url }}",
-"date"     : "{{ post.date | date: '%Y %B %-d' }}",
+"date"     : "{{ day }} de {{ month }} de {{ year }}",
 "content"  : "{{ post.content | strip_html | strip_newlines | remove:  "	" | escape | remove: "\" }}"
+} {% unless forloop.last and site.projects == empty %},{% endunless %}
+{% endfor %}
+{% for project in site.projects %}
+{% assign months = "Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Septiembre|Octubre|Noviembre|Diciembre" | split: "|" %}
+{% assign m = project.date | date: "%-m" | minus: 1 %}
+{% assign day = project.date | date: "%-d" %}
+{% assign month = months[m] %}
+{% assign year = project.date | date: "%Y" %}
+{
+"title"    : "{{ project.title | escape }}",
+"category" : "{{ project.category }}",
+"tags"     : "{{ project.tags | join: ', ' }}",
+"url"      : "{{ site.baseurl }}{{ project.url }}",
+"date"     : "{{ day }} de {{ month }} de {{ year }}",
+"content"  : "{{ project.content | strip_html | strip_newlines | remove:  "    " | escape | remove: "\" }}"
 } {% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]
