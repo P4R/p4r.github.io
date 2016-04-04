@@ -1,5 +1,5 @@
 source: app
-destination: app/_site
+destination: dist
 
 # Site settings
 title: Pere Albujer
@@ -16,7 +16,7 @@ twitter_username: 'P4R93'
 github_username:  P4R
 paypal_donations: http://paypal.me/PAlbujer
 disqus_shortname: 
-google_analytics: ''
+google_analytics: UA-75892687-1
 
 # Pagination
 paginate: 5
