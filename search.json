@@ -1,12 +1,32 @@
 [
 
+
+
+
+
+
 {
 "title"    : "Hola Mundo",
 "category" : "",
 "tags"     : "Hola Mundo, Python, Java, Javascript",
 "url"      : "/blog/2016/04/03/hola-mundo/",
-"date"     : "2016 April 3",
+"date"     : "3 de Abril de 2016",
 "content"  : "Después de mucho tiempo con la intención de crear mi propia web personal al fin ha llegado el día.En esta web me gustaría mostrar algunos de mis proyectos, compartir mis conocimientos relacionados conlas nuevas tecnologías y la programación.Aun no estoy seguro del cual va a ser el contenido exacto del blog, pero me gustaría hablaros de cosasrelacionadas con Android (programación, noticias, novedades …). También me gustaría hablaros sobreRaspberry ya que actualmente tengo un Raspberry Pi 2 Model B, en este caso seguramente sea todo a nivelde sistemas operativos, aplicaciones y servicios que podemos ejecutar en este mini PC. Por ultimo tambiéncreo que puede ser interesante hablar sobre Linux y OSX.Además si el tiempo me lo permite me gustaría aprovechar para aprender Angular,Polymer, Node.js … y de paso contarlo en el blog.En esta primera publicación tampoco quiero entrar en mucho detalle así que simplemente compartiré en envarios lenguajes el típico código que se suele usar cuando se aprende a programar,el famoso Hola Mundo.Python:print &quot;Hola Mundo!&quot;Java:public class HolaMundo {    public static void main(String[] args) {        System.out.println(&quot;Hola Mundo!&quot;);    }}Javascript:alert(&quot;Hola Mundo!&quot;);"
+} ,
+
+
+
+
+
+
+
+{
+"title"    : "Knock the Port",
+"category" : "",
+"tags"     : "",
+"url"      : "/projects/2015/09/24/knock-the-port/",
+"date"     : "24 de Septiembre de 2015",
+"content"  : "Cliente de Port Knocking para Android.Que es el Port Knocking?El Port Knocking es un mecanismo para abrir puertos externamente en un firewall mediante una secuenciapreestablecida de intentos de conexión a puertos que se encuentran cerrados. Una vez que el firewall recibeuna secuencia de conexión correcta, sus reglas son modificadas para permitir al host que realizó los intentosconectarse a un puerto específico.El propósito principal del golpeo de puertos es prevenir un escaneo de puertos por parte de un atacante que buscaposibles servicios vulnerables. Como los mismos solo se abren ante un golpeo de puertos correcto. Normalmente lospuertos donde se brindan los servicios se muestran aparentemente cerrados.Por lo general este mecanismo se implementa configurando un servicio para que revise el log del firewall paradetectar esta secuencia de intentos de conexión.La aplicaciónLa aplicación Knock the Port esta realizada en Android utilizando Java y el IDE Android Studio.Esta aplicación se ha desarrollado para permitir enviar secuencias de port knocking a un servidorde forma rápida y sencilla ya que en la actualidad es bastante frecuente utilizar los dispositivos móvilespara todo.Como características de la aplicación cabe destacar que se han seguido las guías de diseño de Material Design,se ha traducido a varios idiomas para facilitar el uso al usuario y se ha utilizado un nivel de API bastantepequeño para permitir la compatibilidad con la mayoría de dispositivos Android ya que solo se requiere la versión4.0 o superior para poder instalar la aplicación.La aplicación se puede descargar en el Play Store y el código fuente del proyectose encuentra en Github"
 } 
 
 ]
