@@ -12,7 +12,7 @@ play_store_url: https://play.google.com/store/apps/details?id=com.albujer.pere.k
 
 #### Que es el Port Knocking?
 
-El Port Knocking  es un mecanismo para abrir puertos externamente en un firewall mediante una secuencia
+El Port Knocking es un mecanismo para abrir puertos externamente en un firewall mediante una secuencia
 preestablecida de intentos de conexión a puertos que se encuentran cerrados. Una vez que el firewall recibe
 una secuencia de conexión correcta, sus reglas son modificadas para permitir al host que realizó los intentos
 conectarse a un puerto específico.
