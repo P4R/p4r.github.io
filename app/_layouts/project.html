@@ -26,7 +26,15 @@ layout: default
   {% assign month = months[m] %}
   {% assign year = page.date | date: "%Y" %}
   <h1 class="paper-font-display1">{{ page.title }}</h1>
-  <h4 class="paper-font-subhead" id="date">{{day}} de {{month}} de {{year}}</h4>
+        <h4 class="paper-font-subhead" id="date">{{day}} de {{month}} de {{year}}
+              {% if page.github_url %}
+                <a href="{{ page.github_url }}"><paper-icon-button icon="fa:github"></paper-icon-button></a>
+              {% endif %}
+
+              {% if page.play_store_url %}
+                <a href="{{ page.play_store_url }}"><paper-icon-button icon="shop"></paper-icon-button></a>
+              {% endif %}
+        </h4>
 
   <div id="post-content">
     {{ content }}

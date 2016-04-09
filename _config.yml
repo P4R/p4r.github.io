@@ -4,7 +4,7 @@ destination: dist
 # Site settings
 title: Pere Albujer
 subtitle: El éxito depende del esfuerzo
-description: > # this means to ignore newlines until "baseurl:"
+description: Página web de Pere Albujer | El éxito depende del esfuerzo
 
 author: Pere Albujer
 email: pere@albujer.com
