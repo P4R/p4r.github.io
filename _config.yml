@@ -1,5 +1,5 @@
 source: app
-destination: dist
+destination: app/_site
 
 # Site settings
 title: Pere Albujer

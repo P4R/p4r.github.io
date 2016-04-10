@@ -235,11 +235,10 @@ gulp.task('vulcanize', function() {
   return gulp.src(src('elements/elements.html'))
     .pipe($.vulcanize({
       stripComments: true,
-      inlineCss: true,
-      inlineScripts: true
+      inlineScripts: true,
+      inlineCss: true
     }))
-    .pipe(gulp.dest(dist('elements')))
-    .pipe($.size({title: 'vulcanize'}));
+    .pipe(gulp.dest('dist/elements'));
 });
 
 // Generate config data for the <sw-precache-cache> element.
@@ -279,7 +278,7 @@ gulp.task('cache-config', function(callback) {
 
 // Clean output directory
 gulp.task('clean', function() {
-  return del(['.tmp', dist()]);
+  return del(['.tmp', src(), dist()+'/*']);
 });
 
 gulp.task('serve', function(done) {
@@ -296,36 +295,6 @@ gulp.task('serve', function(done) {
   });
   return jekyll
 });
-
-// Watch files for changes & reload
-/*gulp.task('serve', ['styles', 'elements'], function() {
-  browserSync({
-    port: 5000,
-    notify: false,
-    logPrefix: 'PSK',
-    snippetOptions: {
-      rule: {
-        match: '<span id="browser-sync-binding"></span>',
-        fn: function(snippet) {
-          return snippet;
-        }
-      }
-    },
-    // Run as an https by uncommenting 'https: true'
-    // Note: this uses an unsigned certificate which on first access
-    //       will present a certificate warning in the browser.
-    // https: true,
-    server: {
-      baseDir: ['.tmp', 'app/_site'],
-      middleware: [historyApiFallback()]
-    }
-  });*/
-
-  //gulp.watch(['app/_site/**/*.html'], reload);
-  //gulp.watch(['app/_site/styles/**/*.css'], ['styles', reload]);
-  //gulp.watch(['app/_site/elements/**/*.css'], ['elements', reload]);
-  //gulp.watch(['app/_site/images/**/*'], reload);
-//});
 
 // Build and serve the output from the dist build
 gulp.task('serve:dist', ['default'], function() {
