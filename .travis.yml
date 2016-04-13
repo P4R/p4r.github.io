@@ -1,1 +1,3 @@
+before_install:
+  - rvm install 2.2.2
 script: bash ./deploy.sh
