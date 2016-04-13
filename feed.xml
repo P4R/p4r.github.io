@@ -5,8 +5,8 @@
     <description>Página web de Pere Albujer | El éxito depende del esfuerzo</description>
     <link>http://albujer.com/</link>
     <atom:link href="http://albujer.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 Apr 2016 19:48:01 +0200</pubDate>
-    <lastBuildDate>Sun, 10 Apr 2016 19:48:01 +0200</lastBuildDate>
+    <pubDate>Wed, 13 Apr 2016 23:26:40 +0000</pubDate>
+    <lastBuildDate>Wed, 13 Apr 2016 23:26:40 +0000</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -47,7 +47,7 @@ varios lenguajes el típico código que se suele usar cuando se aprende a progra
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hola Mundo!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
-        <pubDate>Sun, 03 Apr 2016 16:00:00 +0200</pubDate>
+        <pubDate>Sun, 03 Apr 2016 14:00:00 +0000</pubDate>
         <link>http://albujer.com/blog/2016/04/03/hola-mundo/</link>
         <guid isPermaLink="true">http://albujer.com/blog/2016/04/03/hola-mundo/</guid>
         
