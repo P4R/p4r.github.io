@@ -1,11 +1,10 @@
 {
-  "name": "jekyll-polymer-theme",
+  "name": "p4r.github.io",
   "version": "0.1.0",
   "authors": [
-    "Julia Ebert <julia@juliaebert.com>"
+    "Pere Albujer <p4r.esp@gmail.com>"
   ],
-  "license": "MIT",
-  "homepage": "juliaebert.com",
+  "homepage": "albujer.com",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -19,5 +18,8 @@
     "iron-elements": "polymerelements/iron-elements#^1.0.8",
     "paper-elements": "polymerelements/paper-elements#^1.0.7",
     "simple-jekyll-search": "^1.1.1"
+  },
+  "resolutions": {
+    "polymer": "^1.2.4"
   }
 }
