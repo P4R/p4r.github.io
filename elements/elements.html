@@ -15640,7 +15640,7 @@ CSS properties               | Action
 
     /**
      * The shared backdrop element.
-     * @type {Element} backdropElement
+     * @type {!Element} backdropElement
      */
     get backdropElement() {
       if (!this._backdropElement) {
@@ -15651,7 +15651,7 @@ CSS properties               | Action
 
     /**
      * The deepest active element.
-     * @type {Element} activeElement the active element
+     * @type {!Element} activeElement the active element
      */
     get deepActiveElement() {
       // document.activeElement can be null
@@ -15671,13 +15671,17 @@ CSS properties               | Action
      */
     _bringOverlayAtIndexToFront: function(i) {
       var overlay = this._overlays[i];
+      if (!overlay) {
+        return;
+      }
       var lastI = this._overlays.length - 1;
+      var currentOverlay = this._overlays[lastI];
       // Ensure always-on-top overlay stays on top.
-      if (!overlay.alwaysOnTop && this._overlays[lastI].alwaysOnTop) {
+      if (currentOverlay && this._shouldBeBehindOverlay(overlay, currentOverlay)) {
         lastI--;
       }
       // If already the top element, return.
-      if (!overlay || i >= lastI) {
+      if (i >= lastI) {
         return;
       }
       // Update z-index to be on top.
@@ -15697,7 +15701,7 @@ CSS properties               | Action
     /**
      * Adds the overlay and updates its z-index if it's opened, or removes it if it's closed.
      * Also updates the backdrop z-index.
-     * @param {Element} overlay
+     * @param {!Element} overlay
      */
     addOrRemoveOverlay: function(overlay) {
       if (overlay.opened) {
@@ -15711,7 +15715,7 @@ CSS properties               | Action
     /**
      * Tracks overlays for z-index and focus management.
      * Ensures the last added overlay with always-on-top remains on top.
-     * @param {Element} overlay
+     * @param {!Element} overlay
      */
     addOverlay: function(overlay) {
       var i = this._overlays.indexOf(overlay);
@@ -15725,7 +15729,7 @@ CSS properties               | Action
       var newZ = this._getZ(overlay);
 
       // Ensure always-on-top overlay stays on top.
-      if (currentOverlay && currentOverlay.alwaysOnTop && !overlay.alwaysOnTop) {
+      if (currentOverlay && this._shouldBeBehindOverlay(overlay, currentOverlay)) {
         // This bumps the z-index of +2.
         this._applyOverlayZ(currentOverlay, minimumZ);
         insertionIndex--;
@@ -15746,7 +15750,7 @@ CSS properties               | Action
     },
 
     /**
-     * @param {Element} overlay
+     * @param {!Element} overlay
      */
     removeOverlay: function(overlay) {
       var i = this._overlays.indexOf(overlay);
@@ -15864,7 +15868,7 @@ CSS properties               | Action
     },
 
     /**
-     * @param {Element} element
+     * @param {!Element} element
      * @param {number|string} z
      * @private
      */
@@ -15873,7 +15877,7 @@ CSS properties               | Action
     },
 
     /**
-     * @param {Element} overlay
+     * @param {!Element} overlay
      * @param {number} aboveZ
      * @private
      */
@@ -15953,6 +15957,19 @@ CSS properties               | Action
           overlay._onCaptureTab(event);
         }
       }
+    },
+
+    /**
+     * Returns if the overlay1 should be behind overlay2.
+     * @param {!Element} overlay1
+     * @param {!Element} overlay2
+     * @return {boolean}
+     * @private
+     */
+    _shouldBeBehindOverlay: function(overlay1, overlay2) {
+      var o1 = /** @type {?} */ (overlay1);
+      var o2 = /** @type {?} */ (overlay2);
+      return !o1.alwaysOnTop && o2.alwaysOnTop;
     }
   };
 
@@ -15968,8 +15985,8 @@ CSS properties               | Action
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background-color: var(--iron-overlay-backdrop-background-color, #000);
       opacity: 0;
       transition: opacity 0.2s;
@@ -16393,13 +16410,13 @@ context. You should place this element as a child of `<body>` whenever possible.
 
       // requestAnimationFrame for non-blocking rendering
       if (this.__openChangedAsync) {
-        cancelAnimationFrame(this.__openChangedAsync);
+        window.cancelAnimationFrame(this.__openChangedAsync);
       }
       if (this.opened) {
         if (this.withBackdrop) {
           this.backdropElement.prepare();
         }
-        this.__openChangedAsync = requestAnimationFrame(function() {
+        this.__openChangedAsync = window.requestAnimationFrame(function() {
           this.__openChangedAsync = null;
           this._prepareRenderOpened();
           this._renderOpened();
@@ -16610,11 +16627,11 @@ context. You should place this element as a child of `<body>` whenever possible.
      */
     _onIronResize: function() {
       if (this.__onIronResizeAsync) {
-        cancelAnimationFrame(this.__onIronResizeAsync);
+        window.cancelAnimationFrame(this.__onIronResizeAsync);
         this.__onIronResizeAsync = null;
       }
       if (this.opened && !this.__isAnimating) {
-        this.__onIronResizeAsync = requestAnimationFrame(function() {
+        this.__onIronResizeAsync = window.requestAnimationFrame(function() {
           this.__onIronResizeAsync = null;
           this.refit();
         }.bind(this));
@@ -21125,6 +21142,7 @@ is separate from validation, and `allowed-pattern` does not affect how the input
       'keypress': '_onKeypress'
     },
 
+    /** @suppress {checkTypes} */
     registered: function() {
       // Feature detect whether we need to patch dispatchEvent (i.e. on FF and IE).
       if (!this._canDispatchEventOnDisabled()) {

@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Pere Albujer" />
 
-    <title>Pere Albujer | Knock the Port</title>
-    <meta name="description" content="Cliente de Port Knocking para Android.">
+    <title>Pere Albujer | Página Web</title>
+    <meta name="description" content="Página web personal con Jekyll en Gihub Pages.">
 
-    <link rel="canonical" href="http://albujer.com/projects/2015/09/24/knock-the-port/">
+    <link rel="canonical" href="http://albujer.com/projects/2016/04/03/personal-website/">
     <link rel="alternate" type="application/rss+xml" title="Pere Albujer" href='http://albujer.com/feed.xml' />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -140,50 +140,63 @@
   
   
   
-  <h1 class="paper-font-display1">Knock the Port</h1>
-        <h4 class="paper-font-subhead" id="date">24 de Septiembre de 2015
+  <h1 class="paper-font-display1">Página Web</h1>
+        <h4 class="paper-font-subhead" id="date">3 de Abril de 2016
               
-                <a href="https://github.com/P4R/knocktheport"><paper-icon-button icon="fa:github"></paper-icon-button></a>
+                <a href="https://github.com/P4R/p4r.github.io"><paper-icon-button icon="fa:github"></paper-icon-button></a>
               
 
-              
-                <a href="https://play.google.com/store/apps/details?id=com.albujer.pere.knocktheport"><paper-icon-button icon="shop"></paper-icon-button></a>
               
         </h4>
 
   <div id="post-content">
-    <h3 id="cliente-de-port-knocking-para-android">Cliente de Port Knocking para Android.</h3>
+    <h3 id="pgina-web-personal-con-jekyll-en-gihub-pages">Página web personal con Jekyll en Gihub Pages.</h3>
 
 <!--more-->
 
-<h4 id="que-es-el-port-knocking">¿Que es el Port Knocking?</h4>
+<p>Este proyecto consiste en una página web personal y el resultado del proyecto ha sido esta misma web.
+Desde el primer día se miraron varias opciones pero una de las más interesantes fue la de utilizar Github Pages
+ya que nos ofrece un servicio gratuito y sus servidores son bastante rápidos, fiables.
+Tras empezar a investigar sobre Gihub Pages me encontré con Jekyll una herramienta fantástica para generar paginas web
+estáticas</p>
 
-<p>El Port Knocking es un mecanismo para abrir puertos externamente en un firewall mediante una secuencia
-preestablecida de intentos de conexión a puertos que se encuentran cerrados. Una vez que el firewall recibe
-una secuencia de conexión correcta, sus reglas son modificadas para permitir al host que realizó los intentos
-conectarse a un puerto específico.</p>
+<h4 id="que-es-gihub-pages">¿Que es Gihub Pages?</h4>
 
-<p>El propósito principal del golpeo de puertos es prevenir un escaneo de puertos por parte de un atacante que busca
-posibles servicios vulnerables. Como los mismos solo se abren ante un golpeo de puertos correcto. Normalmente los
-puertos donde se brindan los servicios se muestran aparentemente cerrados.</p>
+<p>Github Pages es un servicio ofrecido por Github que nos permite publicar paginas web estáticas a partir
+de repositorios de git que tengamos en Gihub. Para esto tenemos dos tipos de paginas las de usuario de la cual
+se dispone de una por usuario y las de proyecto o repositorio de las cuales podemos tener tantas como repositorios.</p>
 
-<p>Por lo general este mecanismo se implementa configurando un servicio para que revise el log del firewall para
-detectar esta secuencia de intentos de conexión.</p>
+<p>Para utilizar las paginas de usuario debemos crear un repositorio con nuestro nombre de usuario como subdominio
+de github.io, en mi caso el nombre del repositorio es “p4r.github.io” y se podría acceder desde
+<a href="http://p4r.github.io" target="_blank">http://p4r.github.io</a>. En el caso de las paginas de usuario se publicará
+el contenido de las rama master.</p>
 
-<h4 id="la-aplicacin">La aplicación</h4>
+<p>Para utilizar las paginas de proyecto sera suficiente con crear un repositorio y crear la rama gh-pages que será la
+que tendrá el contenido que se publicara. En este caso el contenido se publicara en la misma url mencionada
+anteriormente pero añadiendo el repositorio “http://p4r.github.io/nombre_del_repositorio”.</p>
 
-<p>La aplicación Knock the Port esta realizada en Android utilizando Java y el IDE Android Studio.
-Esta aplicación se ha desarrollado para permitir enviar secuencias de port knocking a un servidor
-de forma rápida y sencilla ya que en la actualidad es bastante frecuente utilizar los dispositivos móviles
-para todo.</p>
+<h4 id="que-es-jekyll">¿Que es Jekyll?</h4>
 
-<p>Como características de la aplicación cabe destacar que se han seguido las guías de diseño de Material Design,
-se ha traducido a varios idiomas para facilitar el uso al usuario y se ha utilizado un nivel de API bastante
-pequeño para permitir la compatibilidad con la mayoría de dispositivos Android ya que solo se requiere la versión
-4.0 o superior para poder instalar la aplicación.</p>
+<p><a href="https://jekyllrb.com" target="_blank">Jekyll</a> es un generador de sitios web estáticos creado por Tom Preston-Werner
+co-fundador de GitHub. Se puede usar para generar cualquier tipo de sitio web incluyendo un blog.</p>
 
-<p>La aplicación se puede descargar en el <a href="https://play.google.com/store/apps/details?id=com.albujer.pere.knocktheport" target="_blank">Play Store</a>.
-El código fuente del proyecto se puede encontrar en <a href="https://github.com/P4R/knocktheport" target="_blank">Github</a>.</p>
+<p>Para ello Jekyll utiliza plantillas de código en las que luego se inserta el contenido. Para ello se utiliza:
+Markdown, Liquid, HTML, CSS y JS.</p>
+
+<h4 id="la-pgina-web">La Página web</h4>
+
+<p>En un primer momento decidí empezar la web utilizando <a href="https://www.getmdl.io" target="_blank">Material Design Lite</a> para crear una
+plantilla con los patrones de diseño de Material Design. Tras unos días trabajando con la plantilla me encontré un proyecto
+en Github que consistía en una plantilla con estos mismos patrones de diseño pero en este caso estaba utilizando Polymer así
+que decidí utilizarla para ir aprendiendo poco a poco como funciona Polymer. En un primer momento hice un fork para solucionar
+algún error que existía en el proyecto y luego ya aplique la plantilla a mi proyecto web donde la he traducido y la he ido personalizando. Para ello he eliminado algunas cosas que no necesitaba para agilizar la carga de la web, también he adaptado
+los tamaños de algunas cosas y he modificado la estructura de la web creando una pagina principal para poder tener el blog
+en otro apartado y crear el apartado de proyectos.</p>
+
+<p>Por último para agilizar la subida de contenido se han añadido los archivos de configuración de Travis para que cuando se haga
+alguna modificación Travis suba automáticamente el código generado a la rama correspondiente de Github.</p>
+
+<p>El código fuente del proyecto se puede encontrar en <a href="https://github.com/P4R/p4r.github.io" target="_blank">Github</a>.</p>
 
 
   </div>
@@ -191,31 +204,31 @@ El código fuente del proyecto se puede encontrar en <a href="https://github.com
   <hr/>
 
     <div class="share section">
-    <a href="https://facebook.com/sharer.php?u=http://albujer.com/projects/2015/09/24/knock-the-port/" rel="nofollow" target="_blank" title="Share on Facebook">
+    <a href="https://facebook.com/sharer.php?u=http://albujer.com/projects/2016/04/03/personal-website/" rel="nofollow" target="_blank" title="Share on Facebook">
       <paper-icon-button icon="fa:facebook"></paper-icon-button></a>
-    <a href="https://twitter.com/intent/tweet?text=Knock the Port&url=http://albujer.com/projects/2015/09/24/knock-the-port/&via=P4R93&related=P4R93" rel="nofollow" target="_blank" title="Share on Twitter">
+    <a href="https://twitter.com/intent/tweet?text=Página Web&url=http://albujer.com/projects/2016/04/03/personal-website/&via=P4R93&related=P4R93" rel="nofollow" target="_blank" title="Share on Twitter">
       <paper-icon-button icon="fa:twitter"></paper-icon-button></a>
-    <a href="https://plus.google.com/share?url=http://albujer.com/projects/2015/09/24/knock-the-port/" rel="nofollow" target="_blank" title="Share on Google+">
+    <a href="https://plus.google.com/share?url=http://albujer.com/projects/2016/04/03/personal-website/" rel="nofollow" target="_blank" title="Share on Google+">
       <paper-icon-button icon="fa:google-plus"></paper-icon-button></a>
-    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://albujer.com/projects/2015/09/24/knock-the-port/&title=Knock the Port&summary=&source=http://albujer.com" rel="nofollow" target="_blank" title="Share on LinkedIn">
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://albujer.com/projects/2016/04/03/personal-website/&title=Página Web&summary=&source=http://albujer.com" rel="nofollow" target="_blank" title="Share on LinkedIn">
       <paper-icon-button icon="fa:linkedin"></paper-icon-button></a>
-    <a href="http://www.reddit.com/submit?url=http://albujer.com/projects/2015/09/24/knock-the-port/&title=Knock the Port" rel="nofollow" target="_blank" title="Share on Reddit">
+    <a href="http://www.reddit.com/submit?url=http://albujer.com/projects/2016/04/03/personal-website/&title=Página Web" rel="nofollow" target="_blank" title="Share on Reddit">
       <paper-icon-button icon="fa:reddit"></paper-icon-button></a>
-    <a href="http://www.tumblr.com/share/link?url=http://albujer.com/projects/2015/09/24/knock-the-port/&name={[ page.title }}&description=" rel="nofollow" target="_blank" title="Share on Tumblr">
+    <a href="http://www.tumblr.com/share/link?url=http://albujer.com/projects/2016/04/03/personal-website/&name={[ page.title }}&description=" rel="nofollow" target="_blank" title="Share on Tumblr">
       <paper-icon-button icon="fa:tumblr"></paper-icon-button></a>
   </div>
 
   <div class="section">
     
-    <paper-button raised disabled>
+    <a href="/projects/2015/09/24/knock-the-port/"><paper-button raised class="accent">
       <iron-icon icon="arrow-back"></iron-icon> Anterior
-    </paper-button>
+    </paper-button></a>
     
 
     
-      <a href="/projects/2016/04/03/personal-website/"><paper-button raised class="accent">
+      <paper-button raised disabled>
         Siguiente <iron-icon icon="arrow-forward"></iron-icon>
-      </paper-button></a>
+      </paper-button>
     
   </div>
 
