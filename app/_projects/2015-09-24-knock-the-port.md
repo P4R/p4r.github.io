@@ -36,8 +36,8 @@ se ha traducido a varios idiomas para facilitar el uso al usuario y se ha utiliz
 pequeño para permitir la compatibilidad con la mayoría de dispositivos Android ya que solo se requiere la versión
 4.0 o superior para poder instalar la aplicación.
 
-La aplicación se puede descargar en el [Play Store][play-store]{:target="_blank"} y el código fuente del proyecto
-se encuentra en [Github][github]{:target="_blank"}
+La aplicación se puede descargar en el [Play Store][play-store]{:target="_blank"}.
+El código fuente del proyecto se puede encontrar en [Github][github]{:target="_blank"}.
 
 [play-store]: https://play.google.com/store/apps/details?id=com.albujer.pere.knocktheport
 [github]: https://github.com/P4R/knocktheport
