@@ -63,26 +63,6 @@ You can write block quotes.
 >
 > It can also have multiple paragraphs.
 
-# Math (with MathJax)
-
-You can render *LaTeX* mathematical expressions using **MathJax**, as on [math.stackexchange.com][1]:
-
-There are inline equations like \\( y = x + 2 \\) indicated by `\\( ... \\)`.
-
-You can also display an equation (not inline displayed) using inline code, like \\[ y = x + 4\\] which you do with `\\[ ... \\]`.
-
-Or you can display a block of math by surrounding it with `$$ ... $$`. Like this:
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-> **Tip:** Make sure you include MathJax into your publications to render mathematical expression correctly. Your page/template should include something like: 
-
-```
-<script type="text/javascript" src="https://stackedit.io/libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
-```
-
 # Code
 
 ## Inline code

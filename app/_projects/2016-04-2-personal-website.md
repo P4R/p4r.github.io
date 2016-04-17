@@ -7,7 +7,7 @@ play_store_url:
 published: true
 ---
 
-### Página web personal con Jekyll en Gihub Pages.
+### Página web personal con Jekyll.
 
 <!--more-->
 
