@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Pere Albujer" />
 
-    <title>Pere Albujer | Hola Mundo</title>
-    <meta name="description" content="Después de mucho tiempo con la intención de crear mi propia web personal al fin ha llegado el día.">
+    <title>Pere Albujer | Commits verificados en Github</title>
+    <meta name="description" content="Hace unos días apareció la opción de los commits verificados en Github, para utilizar esta opciónsimplemente hay que firmar los commits con GPG.">
 
-    <link rel="canonical" href="http://albujer.com/blog/2016/04/03/hola-mundo/">
+    <link rel="canonical" href="http://albujer.com/blog/2016/04/17/github-signed-commits/">
     <link rel="alternate" type="application/rss+xml" title="Pere Albujer" href='http://albujer.com/feed.xml' />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -140,90 +140,110 @@
   
   
   
-  <h1 class="paper-font-display1">Hola Mundo</h1>
-  <h4 class="paper-font-subhead" id="date">3 de Abril de 2016</h4>
+  <h1 class="paper-font-display1">Commits verificados en Github</h1>
+  <h4 class="paper-font-subhead" id="date">17 de Abril de 2016</h4>
 
   <div id="post-content">
-    <p>Después de mucho tiempo con la intención de crear mi propia web personal al fin ha llegado el día.</p>
+    <p>Hace unos días apareció la opción de los commits verificados en Github, para utilizar esta opción
+simplemente hay que firmar los commits con GPG.</p>
 
 <!--more-->
 
-<p>En esta web me gustaría mostrar algunos de mis proyectos, compartir mis conocimientos relacionados con
-las nuevas tecnologías y la programación.</p>
+<p>Para configurar esta característica en Linux y OSX debemos seguir los siguientes pasos:</p>
 
-<p>Aun no estoy seguro del cual va a ser el contenido exacto del blog, pero me gustaría hablaros de cosas
-relacionadas con Android (programación, noticias, novedades …). También me gustaría hablaros sobre
-Raspberry ya que actualmente tengo un Raspberry Pi 2 Model B, en este caso seguramente sea todo a nivel
-de sistemas operativos, aplicaciones y servicios que podemos ejecutar en este mini PC. Por ultimo también
-creo que puede ser interesante hablar sobre Linux y OSX.</p>
+<ul>
+  <li>Lo primero que tenemos que hacer es comprobar si ya tenemos una llave de GPG en nuestro PC.
+Para ello utilizaremos el siguiente comando.</li>
+</ul>
 
-<p>Además si el tiempo me lo permite me gustaría aprovechar para aprender <a href="https://angular.io/" target="_blank">Angular</a>,
-<a href="https://www.polymer-project.org/" target="_blank">Polymer</a>, <a href="https://nodejs.org/" target="_blank">Node.js</a> … y de paso contarlo en el blog.</p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>gpg --list-keys</code></pre></figure>
 
-<p>En esta primera publicación tampoco quiero entrar en mucho detalle así que simplemente compartiré en en
-varios lenguajes el típico código que se suele usar cuando se aprende a programar,el famoso Hola Mundo.</p>
+<ul>
+  <li>En caso de no tener ninguna llave podremos generar una con el siguiente comando.
+    <ul>
+      <li>Es importante que al generar la llave introduzcamos el email que usemos en Github.</li>
+    </ul>
+  </li>
+</ul>
 
-<h4 id="python">Python:</h4>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>gpg --gen-key</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">print</span> <span class="s">"Hola Mundo!"</span></code></pre></figure>
+<ul>
+  <li>Una vez generada la llave podremos consultarla con el comando anterior.</li>
+</ul>
 
-<h4 id="java">Java:</h4>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>gpg --list-keys
+/Users/hubot/.gnupg/pubring.gpg
+------------------------------------
+pub   4096R/A8F99211 2016-04-05
+uid                  Hubot 
+sub   4096R/Z832QR89 2016-04-05</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HolaMundo</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="n">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hola Mundo!"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span></code></pre></figure>
+<ul>
+  <li>Tras en anterior comando obtendremos el ID de la llave en este caso <strong><code class="highlighter-rouge">A8F99211</code></strong>. Ahora exportaremos
+la llave en formato ASCII armor con el siguiente comando.</li>
+</ul>
 
-<h4 id="javascript">Javascript:</h4>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>gpg --armor --export A8F99211</code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">alert</span><span class="p">(</span><span class="s2">"Hola Mundo!"</span><span class="p">);</span></code></pre></figure>
+<ul>
+  <li>
+    <p>Una vez exportada la llave la podremos copiar y añadir a nuestra cuenta de Github. Para ello hay que ir
+a la <a href="https://github.com/settings/keys" target="_blank">Configuración de llaves de Github</a> y pulsaremos el botón
+<strong>New GPG Key</strong> el cual nos permitirá pegar la llave y añadirla.</p>
+  </li>
+  <li>
+    <p>Finalmente nos faltaría añadir la llave a nuestra configuración local de git utilizando el ID anterior
+(<strong><code class="highlighter-rouge">A8F99211</code></strong>). Para ello utilizaremos el siguiente comando.</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>git config --global user.signingkey public GPG key A8F99211</code></pre></figure>
+
+<p>Ahora ya podemos realizar commits firmados con el siguiente comando.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">git commit -S -m <span class="s2">"Mensaje commit"</span></code></pre></figure>
+
+<p>Una vez hagamos push de estos commits ya deberíamos verlos como verificados.</p>
+
+<p><img src="/images/posts/signed-commit.png" /></p>
 
 
   </div>
 
   
     
-    <x-chip href="/tag/hola-mundo/">Hola mundo</x-chip>
-  
-    
-    <x-chip href="/tag/python/">Python</x-chip>
-  
-    
-    <x-chip href="/tag/java/">Java</x-chip>
-  
-    
-    <x-chip href="/tag/javascript/">Javascript</x-chip>
+    <x-chip href="/tag/gihub/">Gihub</x-chip>
   
 
   <hr/>
 
     <div class="share section">
-    <a href="https://facebook.com/sharer.php?u=http://albujer.com/blog/2016/04/03/hola-mundo/" rel="nofollow" target="_blank" title="Share on Facebook">
+    <a href="https://facebook.com/sharer.php?u=http://albujer.com/blog/2016/04/17/github-signed-commits/" rel="nofollow" target="_blank" title="Share on Facebook">
       <paper-icon-button icon="fa:facebook"></paper-icon-button></a>
-    <a href="https://twitter.com/intent/tweet?text=Hola Mundo&url=http://albujer.com/blog/2016/04/03/hola-mundo/&via=P4R93&related=P4R93" rel="nofollow" target="_blank" title="Share on Twitter">
+    <a href="https://twitter.com/intent/tweet?text=Commits verificados en Github&url=http://albujer.com/blog/2016/04/17/github-signed-commits/&via=P4R93&related=P4R93" rel="nofollow" target="_blank" title="Share on Twitter">
       <paper-icon-button icon="fa:twitter"></paper-icon-button></a>
-    <a href="https://plus.google.com/share?url=http://albujer.com/blog/2016/04/03/hola-mundo/" rel="nofollow" target="_blank" title="Share on Google+">
+    <a href="https://plus.google.com/share?url=http://albujer.com/blog/2016/04/17/github-signed-commits/" rel="nofollow" target="_blank" title="Share on Google+">
       <paper-icon-button icon="fa:google-plus"></paper-icon-button></a>
-    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://albujer.com/blog/2016/04/03/hola-mundo/&title=Hola Mundo&summary=&source=http://albujer.com" rel="nofollow" target="_blank" title="Share on LinkedIn">
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://albujer.com/blog/2016/04/17/github-signed-commits/&title=Commits verificados en Github&summary=&source=http://albujer.com" rel="nofollow" target="_blank" title="Share on LinkedIn">
       <paper-icon-button icon="fa:linkedin"></paper-icon-button></a>
-    <a href="http://www.reddit.com/submit?url=http://albujer.com/blog/2016/04/03/hola-mundo/&title=Hola Mundo" rel="nofollow" target="_blank" title="Share on Reddit">
+    <a href="http://www.reddit.com/submit?url=http://albujer.com/blog/2016/04/17/github-signed-commits/&title=Commits verificados en Github" rel="nofollow" target="_blank" title="Share on Reddit">
       <paper-icon-button icon="fa:reddit"></paper-icon-button></a>
-    <a href="http://www.tumblr.com/share/link?url=http://albujer.com/blog/2016/04/03/hola-mundo/&name={[ page.title }}&description=" rel="nofollow" target="_blank" title="Share on Tumblr">
+    <a href="http://www.tumblr.com/share/link?url=http://albujer.com/blog/2016/04/17/github-signed-commits/&name={[ page.title }}&description=" rel="nofollow" target="_blank" title="Share on Tumblr">
       <paper-icon-button icon="fa:tumblr"></paper-icon-button></a>
   </div>
 
   <div class="section">
     
-    <paper-button raised disabled>
+    <a href="/blog/2016/04/03/hola-mundo/"><paper-button raised class="accent">
       <iron-icon icon="arrow-back"></iron-icon> Anterior
-    </paper-button>
+    </paper-button></a>
     
 
     
-      <a href="/blog/2016/04/17/github-signed-commits/"><paper-button raised class="accent">
-        Siguiente<iron-icon icon="arrow-forward"></iron-icon>
-      </paper-button></a>
+      <paper-button raised disabled>
+        Siguiente <iron-icon icon="arrow-forward"></iron-icon>
+      </paper-button>
     
   </div>
 
