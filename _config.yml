@@ -7,7 +7,16 @@ subtitle: El éxito depende del esfuerzo
 description: Página web de Pere Albujer | El éxito depende del esfuerzo
 
 author: Pere Albujer
-email: pere@albujer.com
+
+# Emails are in three parts for prevent scrapers. Emails will be loaded using JS.
+# Email Form -> IMPORTANT if principal email is not set, set published to false in contact.html
+email_1: pere
+email_2: albujer
+email_3: com
+# Email CC
+email_cc_1: p4r.esp
+email_cc_2: gmail
+email_cc_3: com
 
 baseurl: "" # the subpath of your site, e.g. /blog. For deploying to github pages, this should match your repo name
 url: "http://albujer.com" # the base hostname & protocol for your site

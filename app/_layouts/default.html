@@ -33,8 +33,8 @@
           {% if site.paypal_donations %}
           <a href="{{ site.paypal_donations }}" target="_blank"><iron-icon icon="fa:paypal"></iron-icon><span>Donaciones</span></a>
           {% endif %}
-          {% if site.email %}
-          <a data-route="contact" href="mailto:{{ site.email }}"><iron-icon icon="mail"></iron-icon><span>Contacto</span></a>
+          {% if site.email_1 and site.email_2 and site.email_3 %}
+          <a data-route="contact" href="{{ site.baseurl }}/contact"><iron-icon icon="mail"></iron-icon><span>Contacto</span></a>
           {% endif %}
         </paper-menu>
         <div class="push"></div>
