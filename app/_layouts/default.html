@@ -20,9 +20,11 @@
           <a href="{{ site.baseurl }}/"><iron-icon icon="home"></iron-icon><span>Inicio</span></a>
           <a href="{{ site.baseurl }}/blog"><iron-icon icon="icons:chrome-reader-mode"></iron-icon><span>Blog</span></a>
           <a href="{{ site.baseurl }}/projects"><iron-icon icon="icons:polymer"></iron-icon><span>Proyectos</span></a>
+          {% if site.email_1 and site.email_2 and site.email_3 %}
+          <a href="{{ site.baseurl }}/contact"><iron-icon icon="mail"></iron-icon><span>Contacto</span></a>
+          {% endif %}
           <a href="{{ site.baseurl }}/about"><iron-icon icon="social:person"></iron-icon><span>Acerca de mí</span></a>
           <a href="{{ site.baseurl }}/archive"><iron-icon icon="history"></iron-icon><span>Archivo</span></a>
-          <a data-route="contact" href="{{ site.baseurl }}/feed.xml"><iron-icon icon="fa:rss"></iron-icon><span>RSS</span></a>
         </paper-menu>
 
         <my-nav-subheader></my-nav-subheader>
@@ -33,9 +35,7 @@
           {% if site.paypal_donations %}
           <a href="{{ site.paypal_donations }}" target="_blank"><iron-icon icon="fa:paypal"></iron-icon><span>Donaciones</span></a>
           {% endif %}
-          {% if site.email_1 and site.email_2 and site.email_3 %}
-          <a data-route="contact" href="{{ site.baseurl }}/contact"><iron-icon icon="mail"></iron-icon><span>Contacto</span></a>
-          {% endif %}
+          <a data-route="contact" href="{{ site.baseurl }}/feed.xml"><iron-icon icon="fa:rss"></iron-icon><span>RSS</span></a>
         </paper-menu>
         <div class="push"></div>
       </div>
