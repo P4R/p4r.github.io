@@ -278,7 +278,7 @@ gulp.task('cache-config', function(callback) {
 
 // Clean output directory
 gulp.task('clean', function() {
-  return del(['.tmp', src(), dist()]);
+  return del(['.tmp', src(), dist()+'/*']);
 });
 
 gulp.task('serve', function(done) {
