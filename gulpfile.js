@@ -283,13 +283,8 @@ gulp.task('clean', function() {
 
 gulp.task('serve', function(done) {
   var jekyll
-  if (argv.port) {
-    jekyll = spawn('bundle', ['exec', 'jekyll', 'serve', '--port=' + argv.port], { stdio: 'inherit' })
-        .on('close', done);
-  } else {
-    jekyll = spawn('bundle', ['exec', 'jekyll', 'serve'], { stdio: 'inherit' })
-        .on('close', done);
-  }
+  jekyll = spawn('bundle', ['exec', 'jekyll', 'serve','--host=0.0.0.0'], { stdio: 'inherit' })
+      .on('close', done);
   jekyll.on('exit', function(code) {
     gulpCallBack(code === 0 ? null : 'ERROR: Jekyll process exited with code: '+code);
   });
