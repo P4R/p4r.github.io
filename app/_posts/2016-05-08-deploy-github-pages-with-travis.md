@@ -8,7 +8,7 @@ tags:
     - Github
 ---
 
-A los pocos días de poner la web en funcionamiento en Github Pages me di cuenta de que había que hacer algo para automatizar la publicación de contenido en la web. Tras analizar todas opciones decidí que Travis CI fuera el encargado de procesar todo el código y publicarlo la web.
+A los pocos días de poner la web en funcionamiento en Github Pages me di cuenta de que había que hacer algo para automatizar la publicación de contenido en la web. Tras analizar todas opciones decidí que Travis CI fuera el encargado de procesar todo el código y publicarlo en la web.
 
 <!--more--> 
 
