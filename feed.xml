@@ -5,9 +5,121 @@
     <description>Página web de Pere Albujer | El éxito depende del esfuerzo</description>
     <link>http://albujer.com/</link>
     <atom:link href="http://albujer.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 May 2016 22:11:49 +0000</pubDate>
-    <lastBuildDate>Tue, 03 May 2016 22:11:49 +0000</lastBuildDate>
+    <pubDate>Sun, 08 May 2016 16:13:46 +0000</pubDate>
+    <lastBuildDate>Sun, 08 May 2016 16:13:46 +0000</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
+    
+      <item>
+        <title>Publicar web con Travis CI</title>
+        <description>&lt;p&gt;A los pocos días de poner la web en funcionamiento en Github Pages me di cuenta de que había que hacer algo para automatizar la publicación de contenido en la web. Tras analizar todas opciones decidí que Travis CI fuera el encargado de procesar todo el código y publicarlo la web.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;El ejemplo que voy a usar es el de mi web, así que explicare como publico el código generado por Jekyll y el descargado
+de componentes web como Polymer y otros ya que estos nunca están presentes en la rama que contiene el código del proyecto.&lt;/p&gt;
+
+&lt;p&gt;A continuación podéis ver de forma mas concreta el proyecto web y una ligera explicación de como funciona
+Gihub Pages. &lt;a href=&quot;/projects/2016/04/03/personal-website/&quot; target=&quot;_blank&quot;&gt;Ver proyecto web&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;requisitos&quot;&gt;Requisitos:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Repositorio en Github con la web.&lt;/li&gt;
+  &lt;li&gt;Cuenta en &lt;a href=&quot;https://travis-ci.org/&quot; target=&quot;_blank&quot;&gt;Travis CI&lt;/a&gt; (Se puede hacer login con la cuenta de Github)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;como-funciona-travis-ci&quot;&gt;¿Como funciona Travis CI?&lt;/h3&gt;
+
+&lt;p&gt;Travis es un sistema de integración continua el cual nos permite realizar test sobre nuestro código de Github.
+En nuestro caso ademas de comprobar que todo ha funcionado bien lo vamos a utilizar para publicar el
+código generado en otra rama de nuestro repositorio.&lt;/p&gt;
+
+&lt;p&gt;Travis se activa con cada push que se hace a nuestro repositorio o también con los pull request aunque esta última
+opción no la vamos a utilizar.&lt;/p&gt;
+
+&lt;h3 id=&quot;configuracin-travis-ci&quot;&gt;Configuración Travis CI&lt;/h3&gt;
+
+&lt;p&gt;En primer lugar debemos obtener un token de Github para poder hacer push desde Travis, el token lo podemos obtener
+desde &lt;a href=&quot;https://github.com/settings/tokens&quot; target=&quot;_blank&quot;&gt;aquí&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A continuación accederemos a la web de Travis donde lo autorizaremos para acceder a nuestro repositorio.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/travis-active-repo.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Una vez autorizado pasaremos configurar el repositorio en Travis mediante el botón de ajustes, deberemos
+activar las opciones que aparecen en la siguiente imagen y añadiremos una variable de entorno llamada
+GH_TOKEN donde pondremos el token obtenido en Github &lt;strong&gt;(Importante marcar el token como oculto/privado
+para que nadie lo pueda ver y utilizar)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/travis-config-repo.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Una vez este todo configurado solo tenemos que añadir el fichero de Travis y el script que ejecutaremos en
+nuestro repositorio de Github.&lt;/p&gt;
+
+&lt;h5 id=&quot;travisyml&quot;&gt;.travis.yml&lt;/h5&gt;
+
+&lt;p&gt;Como se puede ver en este fichero especificaremos todo lo necesario para poder ejecutar nuestro código. En
+mi caso simplemente necesitaré Node.js y Ruby. Además especificaré el script que se tendrá que ejecutar,
+en este caso Travis actuara en todas las ramas que contengan este archivo pero podríamos limitar las ramas
+en el archivo de configuración.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;s&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;node_js&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;node_js&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;0.12.2&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;before_install&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;rvm install 2.2.2&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bash ./deploy.sh&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;deploysh&quot;&gt;deploy.sh&lt;/h5&gt;
+
+&lt;p&gt;Este script simplemente ejecutará todas las instrucciones necesarias para obtener el código de la
+web y si todo va bien se configurará un usuario de git (Se puede modificar el email por el nuestro
+de Github para que se asocie el commit a nuestra cuenta) que sera el encargado de subir los cambios
+a la rama en la cual se publica la web que en este caso es master pero en otros podría ser gh-pages.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; -e &lt;span class=&quot;c&quot;&gt;# exit with nonzero exit code if anything fails&lt;/span&gt;
+
+gem install bundler
+bundle install
+
+&lt;span class=&quot;c&quot;&gt;# Add source from master branch&lt;/span&gt;
+git clone https://github.com/P4R/p4r.github.io.git -b master dist
+
+&lt;span class=&quot;c&quot;&gt;# Run commands to build the website in the dist folder&lt;/span&gt;
+npm install -g gulp bower &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; npm install &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; bower install
+gulp
+
+&lt;span class=&quot;c&quot;&gt;# Go to the dist directory.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;dist
+
+&lt;span class=&quot;c&quot;&gt;# Inside this git repo we&#39;ll pretend to be a new user&lt;/span&gt;
+git config user.name &lt;span class=&quot;s2&quot;&gt;&quot;Travis CI&quot;&lt;/span&gt;
+git config user.email &lt;span class=&quot;s2&quot;&gt;&quot;travis@travis-ci.org&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Add changes and commit.&lt;/span&gt;
+git add .
+git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Deploy with Travis CI&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Push from the current repo&#39;s master branch to the remote&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# repo&#39;s master branch. We redirect any output to&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# /dev/null to hide any sensitive credential data that might otherwise be exposed.&lt;/span&gt;
+git push --quiet &lt;span class=&quot;s2&quot;&gt;&quot;https://&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GH_TOKEN&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;@github.com/P4R/p4r.github.io.git&quot;&lt;/span&gt; master &amp;gt; /dev/null 2&amp;gt;&amp;amp;1&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Una vez todo configurado para comprobar que funciona simplemente tendremos que hacer push a nuestro
+repositorio y desde la web de Travis podremos ver como se va ejecutando el código y si todo va bien
+se publicará en la rama correspondiente.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 08 May 2016 16:00:00 +0000</pubDate>
+        <link>http://albujer.com/blog/2016/05/08/deploy-github-pages-with-travis/</link>
+        <guid isPermaLink="true">http://albujer.com/blog/2016/05/08/deploy-github-pages-with-travis/</guid>
+        
+        <category>Travis</category>
+        
+        <category>Github</category>
+        
+        
+      </item>
     
       <item>
         <title>¿Es seguro utilizar Internet?</title>
